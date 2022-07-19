@@ -1,0 +1,138 @@
+HW_1.
+
+1) Check where I am
+pwd
+/d/QA30
+
+2) Create a folder
+mkdir homework
+
+3) Go to folder
+cd homework
+
+4) Create 3 folders
+mkdir hw1 hw2 hw3
+
+5) Go to any folder
+cd hw1
+
+6) Create 5 files (3 txt, 2 json)
+touch fox.txt fox1.txt fox2.txt lis.json lis1.json
+
+7)Create 3 folders
+mkdir flower flower1 flower2
+
+8. List the contents of a folder
+ls -la
+total 4
+drwxr-xr-x 1 IT Capital 197121 0 Jun  9 01:17 ./
+drwxr-xr-x 1 IT Capital 197121 0 Jun  9 01:13 ../
+drwxr-xr-x 1 IT Capital 197121 0 Jun  9 01:17 flower/
+drwxr-xr-x 1 IT Capital 197121 0 Jun  9 01:17 flower1/
+drwxr-xr-x 1 IT Capital 197121 0 Jun  9 01:17 flower2/
+-rw-r--r-- 1 IT Capital 197121 0 Jun  9 01:16 fox.txt
+-rw-r--r-- 1 IT Capital 197121 0 Jun  9 01:16 fox1.txt
+-rw-r--r-- 1 IT Capital 197121 0 Jun  9 01:16 fox2.txt
+-rw-r--r-- 1 IT Capital 197121 0 Jun  9 01:16 lis.json
+-rw-r--r-- 1 IT Capital 197121 0 Jun  9 01:16 lis1.json
+
+9) + open any txt file
+cat fox.txt
+
+10) + write something there, any text.
+cat >> fox.txt
+Hi all
+54321
+How are you
+
+11) + save and exit.
+ctrl+c
+
+12) Exit folder one level up
+cd ..
+
+____________________________________________________
+
+13) move any 2 files you created to any other folder.
+mv fox1.txt fox2.txt ../
+
+14) copy any 2 files you created to any other folder
+cp lis.json lis1.json ../
+
+15) Find file by name
+find -name fox.txt
+./hw1/fox.txt
+./hw2/fox.txt
+
+16) view content in real time 
+tail -f hot.txt
+one
+two three
+four
+Open gitbash at the same time again, command cat >> hot.txt and edit the text. The first gitbash window will display the changes.  
+
+17) output the first few lines from a text file
+head -n3 fox3.txt
+one
+two
+three
+
+18)output the last few lines from a text file
+tail -n3 fox3.txt
+seven
+eight
+nine
+
+19) view long file contents (less than command) learn how it works.
+less fox2.txt
+
+Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+fox2.txt (END)
+q
+
+20) output date and time
+date
+Wed Jun  1 20:40:00 MEDT 2022
+==================================
+==================================
+
+
+Task*
+1) Send http request to server.
+curl "http://162.55.220.72:5005/get_method?name=vika&age=33"
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100    22  100    22    0     0    140      0 --:--:-- --:--:-- --:--:--   141[
+  "vika",
+  "33"
+]
+
+
+
+2) Write a script that will automatically execute steps 3, 4, 5, 6, 7, 8, 13
+nano enjoy.sh
+2.Going to GNU
+#!/bin/bash
+
+cd QA30
+mkdir papka1 papka2 papka3
+cd papka1
+touch kot1.txt kot2.txt kot3.txt fire.json fire1.json
+mkdir 1 2 3
+ls -la
+cd ..
+mv papka1/kot1.txt papka2/kot1.txt && mv papka1/kot2.txt papka2/kot2.txt
+3.CTRL+O ENTER CTRL+X
+4.bash enjoy.sh 
+
+
+
+
+
+
+
+
+
+
+
+
