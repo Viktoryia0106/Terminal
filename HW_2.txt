@@ -1,0 +1,238 @@
+1. Create folder dir_1
+mkdir dir_1
+
+
+2. Go to dir_1 folder
+cd dir_1
+
+3. Create folder inner_dir_1
+mkdir inner_dir_1
+
+4. See where you are
+ pwd
+/d/QA30/dir_1
+
+5. Being in the folder dir_1 create an empty text file tf_1.txt
+touch tf_1.txt
+
+ 6.Being in the dir_1 folder, use the cat command to create a text file tf_2.txt with the following lines:
+- the first 1
+- the second 2
+- the third 3
+
+cat > tf_2.txt
+the first 1
+the second 2
+the third 3
+ctrl+d
+
+ 7. Go to inner_dir_1 folder
+ cd inner_dir_1
+
+ 8. Through cat make a text file tf_3.txt with any lines
+ cat > tf_3.txt
+stroka
+stroka ty
+
+ 9. Through cat add the line “the second 2” to the text file tf_3.txt
+ 10. Through cat add the line “the sec 2” to the text file tf_3.txt
+cat >> tf_3.txt
+the second 2
+the sec 2
+
+ 11. Through cat add the line “the sec 3” to the text file tf_2.txt
+cat >> ../tf_2.txt
+the sec 3
+
+ 12.Using cat add the line “the SeCoNd 2” to the text file tf_3.txt
+ cat >> tf_3.txt
+the SeCoNd 2
+
+ 13. Through cat add the line “the seConD 2” to the text file tf_2.txt
+cat >> ../tf_2.txt
+the seConD 2
+
+14. Create a text file tf_4.txt with 15 lines.
+ cat > tf_4.txt
+pervaja
+vtoraja
+tretja
+chetwiortaja
+piataja
+shestaja
+siedmaja
+vosmaja
+devataja
+desataja
+oldinadctaja
+dwenadcataja
+trinadcataja
+chetyrnadcataja
+piatnadcataja
+
+15. Create a text file tF_5.txt with 13 lines.
+cat > tF_5.txt
+wehed
+tnen
+telete
+3arba
+hamsa
+sette
+saba
+tmene
+tesa
+ahra
+hdash
+tnash
+tlatash
+
+ 16. List all files in a folder.
+ ls -la
+total 3
+drwxr-xr-x 1 IT Capital 197121   0 Jun  9 18:10 ./
+drwxr-xr-x 1 IT Capital 197121   0 Jun  9 02:31 ../
+-rw-r--r-- 1 IT Capital 197121  43 Jun  9 02:28 tf_3.txt
+-rw-r--r-- 1 IT Capital 197121 185 Jun  9 02:19 tf_4.txt
+-rw-r--r-- 1 IT Capital 197121  77 Jun  9 18:11 tf_5.txt
+
+ 17. Exit folder inner_dir_1
+ cd ..
+
+ 18. Output the contents of the tf_3.txt file to the terminal.
+cat /d/QA30/dir_1/inner_dir_1/tf_3.txt
+stroka
+stroka ty
+the second
+the sec
+the SeCoNd 2
+
+19. Find the path to the file tf_4.txt
+find -name tf_4.txt
+./inner_dir_1/tf_4.txt
+
+20. Clear the tf_4.txt file from the contents without deleting the file itself.
+echo > /d/QA30/dir_1/inner_dir_1/tf_4.txt
+
+ 21. Find the path to files that have "tf" in their names.
+ find -name "tf*"
+./inner_dir_1/tf_3.txt
+./inner_dir_1/tf_4.txt
+./tf_1.txt
+./tf_2.txt
+./tf_4.txt
+
+ 22. Find the path to files that have "tf" in the name and letters in any case.
+ find -iname "tf*"
+./inner_dir_1/tf_3.txt
+./inner_dir_1/tf_4.txt
+./inner_dir_1/tF_5.txt
+./tf_1.txt
+./tf_2.txt
+./tf_4.txt
+
+ 23. Find lines in files where there is a combination of letters "sec" in the current folder
+grep -s sec *
+tf_2.txt:the second 2
+tf_2.txt:the sec 3
+
+24. Find lines in files where there is a combination of letters "sec" in any case in the current folder
+ grep -si sec *
+tf_2.txt:the second 2
+tf_2.txt:the sec 3
+tf_2.txt:the seConD 2
+
+ 25. Find lines in files where there is only a combination of letters "sec" in the current folder
+grep -sw sec *
+tf_2.txt:the sec 3
+
+
+ 26. Find lines in files where there is only a combination of letters “sec” in any case in the current folder
+grep -swi sec *
+tf_2.txt:the sec 3
+
+27. Find lines in files where there is a combination of letters “second” in the current folder
+ grep -s second *
+tf_2.txt:the second 2
+
+28. Find lines in files where there is a combination of letters “second” in any case in the current folder
+ grep -si second *
+tf_2.txt:the second 2
+tf_2.txt:the seConD 2
+
+
+29. Find lines in files where there is a combination of letters “second” in all folders below
+ grep -r second */
+inner_dir_1/tf_3.txt:the second 2
+
+30. Find only the path and file name in the lines that contain the combination of the letters “second” in the current folder
+ grep -sl second *
+tf_2.txt
+
+31. Find all lines in all files where there is no "second" combination
+grep -vri second
+inner_dir_1/tf_3.txt:stroka
+inner_dir_1/tf_3.txt:stroka ty
+inner_dir_1/tf_3.txt:the sec
+inner_dir_1/tf_4.txt:
+inner_dir_1/tF_5.txt:wehed
+inner_dir_1/tF_5.txt:tnen
+inner_dir_1/tF_5.txt:teleta
+inner_dir_1/tF_5.txt:arba
+inner_dir_1/tF_5.txt:hamsa
+inner_dir_1/tF_5.txt:sette
+inner_dir_1/tF_5.txt:saba
+inner_dir_1/tF_5.txt:tmeni
+inner_dir_1/tF_5.txt:tesa
+inner_dir_1/tF_5.txt:ashra
+inner_dir_1/tF_5.txt:hdash
+inner_dir_1/tF_5.txt:tnash
+inner_dir_1/tF_5.txt:tlatash
+tf_2.txt:the first 1
+tf_2.txt:the third 3
+tf_2.txt:the sec 3
+tf_4.txt:
+
+32. Find only the name and path to files where there is no "second" combination
+ grep -rL second
+inner_dir_1/mysh.txt
+inner_dir_1/tf_4.txt
+inner_dir_1/tF_5.txt
+tf_1.txt
+
+ 33. Print the last 4 lines of any text file to the terminal
+tail -n4 /d/QA30/dir_1/inner_dir_1/tF_5.txt
+ashra
+hdash
+tnash
+tlatash
+
+34. Output to terminal 4 the first lines of any text file.
+head -n4 /d/QA30/dir_1/inner_dir_1/tF_5.txt
+wehed
+tnen
+teleta
+arba
+
+35. One line command. Create a folder and create a text file with contents.
+ mkdir papka & cat > mysh.txt
+[1] 1599
+odin
+dva tri
+[1]+  Done                    mkdir papka
+
+              
+36. One line command. Move to any one folder text files that have the word “sec” in their content
+ grep -rl "sec" * | xargs mv -t papka
+
+37. One line command. Copy to any one folder text files that have the word “sec” in their content
+ grep -rl "sec" * | xargs cp -t dir_3
+
+38. One line command. Find all lines with "sec" in all text files, copy and paste these lines into one new created text file.
+grep -rh sec | xargs echo > hit.txt
+
+39.One line command. Delete text files that have the word “sec” in their content
+grep -ril sec | xargs rm -rf *.txt
+
+ 40. Just print the line “Good job!!”
+echo "Good job!"
+Good job!
